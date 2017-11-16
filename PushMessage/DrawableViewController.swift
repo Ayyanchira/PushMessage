@@ -40,6 +40,15 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let container = self.so_containerViewController {
+            container.isSideViewControllerPresented = false
+        }
+        let navControl = so_containerViewController?.topViewController as! UINavigationController
+        let messageVC = navControl.topViewController! as! MessagesViewController
+        navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "profileVC"))!], animated: false)
+       // so_containerViewController?.topViewController?.performSegue(withIdentifier: "profileView", sender: nil)
+    }
 
     /*
     // MARK: - Navigation
