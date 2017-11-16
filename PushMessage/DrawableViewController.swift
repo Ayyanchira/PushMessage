@@ -44,10 +44,23 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         if let container = self.so_containerViewController {
             container.isSideViewControllerPresented = false
+            let navControl = container.topViewController as! UINavigationController
+            if indexPath.row == 0{
+                navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "MessageView"))!], animated: false)
+            }else if indexPath.row == 1{
+                //var hamButton = UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: <#T##Selector?#>)
+                
+                //navControl.setToolbarItems([hamButton], animated: false)
+                navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "profileVC"))!], animated: false)
+            }else if indexPath.row == 2{
+                
+            }
+            
+            
         }
-        let navControl = so_containerViewController?.topViewController as! UINavigationController
-        let messageVC = navControl.topViewController! as! MessagesViewController
-        navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "profileVC"))!], animated: false)
+        
+        //let messageVC = navControl.topViewController! as! MessagesViewController
+        
        // so_containerViewController?.topViewController?.performSegue(withIdentifier: "profileView", sender: nil)
     }
 
