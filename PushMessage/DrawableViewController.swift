@@ -41,6 +41,7 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if let container = self.so_containerViewController {
             container.isSideViewControllerPresented = false
         }
