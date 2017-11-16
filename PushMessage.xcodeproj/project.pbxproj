@@ -15,6 +15,7 @@
 		CE6107A41FBE1169003D2AF0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107A31FBE1169003D2AF0 /* ContainerViewController.swift */; };
 		CE6107A61FBE1181003D2AF0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107A51FBE1181003D2AF0 /* MessagesViewController.swift */; };
 		CE6107A81FBE1196003D2AF0 /* DrawableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107A71FBE1196003D2AF0 /* DrawableViewController.swift */; };
+		CE6107AA1FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107A91FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		CE6107A31FBE1169003D2AF0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		CE6107A51FBE1181003D2AF0 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		CE6107A71FBE1196003D2AF0 /* DrawableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawableViewController.swift; sourceTree = "<group>"; };
+		CE6107A91FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarCustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				CE6107A31FBE1169003D2AF0 /* ContainerViewController.swift */,
 				CE6107A51FBE1181003D2AF0 /* MessagesViewController.swift */,
 				CE6107A71FBE1196003D2AF0 /* DrawableViewController.swift */,
+				CE6107A91FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift */,
 			);
 			path = PushMessage;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6107AA1FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift in Sources */,
 				CE6107A81FBE1196003D2AF0 /* DrawableViewController.swift in Sources */,
 				CE6107A61FBE1181003D2AF0 /* MessagesViewController.swift in Sources */,
 				CE6107A41FBE1169003D2AF0 /* ContainerViewController.swift in Sources */,
