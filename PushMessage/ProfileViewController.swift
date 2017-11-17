@@ -21,7 +21,12 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func hamButtonPressed(_ sender: UIBarButtonItem) {
+        if let container = self.so_containerViewController {
+            container.isSideViewControllerPresented = true
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
