@@ -10,4 +10,5 @@ target 'PushMessage' do
 	platform :ios,8.0
 
 	pod 'SidebarOverlay'
+	pod 'Alamofire', '~> 4.2.0'
 end
