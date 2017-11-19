@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="VJY-iv-RUj">
@@ -17,25 +22,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UY6-3H-iTh">
-                                <rect key="frame" x="168" y="318" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="qD0-jc-xQ0" eventType="touchUpInside" id="wAF-td-Je8"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="H1F-lh-sOp">
+                                <rect key="frame" x="10" y="283.5" width="355" height="120"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="II8-45-ws6">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="70"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-Sc-AV0">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lOc-uh-Rrd">
+                                                <rect key="frame" x="0.0" y="40" width="355" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UY6-3H-iTh">
+                                        <rect key="frame" x="158.5" y="90" width="38" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="qD0-jc-xQ0" eventType="touchUpInside" id="wAF-td-Je8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="II8-45-ws6" secondAttribute="trailing" id="Va1-U9-F58"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H1F-lh-sOp" firstAttribute="centerY" secondItem="Ewa-Hw-7zb" secondAttribute="centerY" id="Pfe-x7-9dg"/>
+                            <constraint firstItem="H1F-lh-sOp" firstAttribute="leading" secondItem="Ewa-Hw-7zb" secondAttribute="leading" constant="10" id="u01-aY-em4"/>
+                            <constraint firstItem="Ewa-Hw-7zb" firstAttribute="trailing" secondItem="H1F-lh-sOp" secondAttribute="trailing" constant="10" id="vL2-Ar-n3W"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ewa-Hw-7zb"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTextField" destination="lOc-uh-Rrd" id="XUW-bf-e9P"/>
+                        <outlet property="usernameTextField" destination="Lyf-Sc-AV0" id="jW0-RZ-ZDT"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginSuccess" id="NKu-wU-rHb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2T-UP-Z8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182" y="-557"/>
+            <point key="canvasLocation" x="181.59999999999999" y="-558.17091454272872"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -60,7 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jex-Vo-ppM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jex-Vo-ppM">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -71,11 +107,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abm-s4-Ezd">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abm-s4-Ezd">
                                                     <rect key="frame" x="9" y="0.0" width="351" height="103"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -86,56 +121,57 @@
                                                 <constraint firstItem="abm-s4-Ezd" firstAttribute="top" secondItem="BE5-Eo-bBW" secondAttribute="top" id="mMw-Zy-t1W"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="infoTextView" destination="abm-s4-Ezd" id="8hG-29-LzH"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="124" id="K6x-WR-byc" customClass="QuestionYesNoTableViewCell" customModule="PushMessage" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="137" width="375" height="124"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="question" rowHeight="191" id="K6x-WR-byc" customClass="QuestionYesNoTableViewCell" customModule="PushMessage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="137" width="375" height="191"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K6x-WR-byc" id="BeN-pj-dsP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="190.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L8o-iS-sa7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-RF-veN">
+                                                    <rect key="frame" x="10" y="2" width="355" height="178.5"/>
+                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fQc-fD-5tI">
+                                                    <rect key="frame" x="10" y="180.5" width="355" height="0.0"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-RF-veN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q3L-2e-zhi">
-                                                            <rect key="frame" x="0.0" y="75" width="375" height="38.5"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-T5-mHP">
-                                                                    <rect key="frame" x="0.0" y="4.5" width="187.5" height="30"/>
-                                                                    <state key="normal" title="No"/>
-                                                                    <connections>
-                                                                        <action selector="noButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="TxQ-B5-ghg"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnO-BA-vtF">
-                                                                    <rect key="frame" x="187.5" y="4.5" width="187.5" height="30"/>
-                                                                    <state key="normal" title="Yes"/>
-                                                                    <connections>
-                                                                        <action selector="yesButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="9vo-iC-6ot"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnO-BA-vtF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="0.0"/>
+                                                            <state key="normal" title="Yes"/>
+                                                            <connections>
+                                                                <action selector="yesButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="9vo-iC-6ot"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-T5-mHP">
+                                                            <rect key="frame" x="177.5" y="0.0" width="177.5" height="0.0"/>
+                                                            <state key="normal" title="No">
+                                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="noButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="TxQ-B5-ghg"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="L8o-iS-sa7" secondAttribute="bottom" constant="10" id="DeS-kl-pF5"/>
-                                                <constraint firstItem="L8o-iS-sa7" firstAttribute="leading" secondItem="BeN-pj-dsP" secondAttribute="leading" id="GAg-w6-OW8"/>
-                                                <constraint firstItem="L8o-iS-sa7" firstAttribute="top" secondItem="BeN-pj-dsP" secondAttribute="top" id="Gsa-lr-Cn0"/>
-                                                <constraint firstAttribute="trailing" secondItem="L8o-iS-sa7" secondAttribute="trailing" id="UCW-4N-iJq"/>
+                                                <constraint firstAttribute="bottom" secondItem="fQc-fD-5tI" secondAttribute="bottom" constant="10" id="Nt1-Zl-2Hk"/>
+                                                <constraint firstItem="fQc-fD-5tI" firstAttribute="leading" secondItem="BeN-pj-dsP" secondAttribute="leading" constant="10" id="QcN-x7-DbA"/>
+                                                <constraint firstAttribute="trailing" secondItem="fQc-fD-5tI" secondAttribute="trailing" constant="10" id="SWA-hA-39J"/>
+                                                <constraint firstItem="zOe-RF-veN" firstAttribute="leading" secondItem="BeN-pj-dsP" secondAttribute="leading" constant="10" id="W0e-GC-utT"/>
+                                                <constraint firstItem="zOe-RF-veN" firstAttribute="top" secondItem="BeN-pj-dsP" secondAttribute="top" constant="2" id="jPL-z6-kVS"/>
+                                                <constraint firstItem="fQc-fD-5tI" firstAttribute="top" secondItem="zOe-RF-veN" secondAttribute="bottom" id="tdI-v1-0Cf"/>
+                                                <constraint firstAttribute="trailing" secondItem="zOe-RF-veN" secondAttribute="trailing" constant="10" id="vfG-AS-scg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="questionTextView" destination="zOe-RF-veN" id="GvL-dL-KMm"/>
                                         </connections>

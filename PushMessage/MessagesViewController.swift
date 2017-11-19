@@ -32,23 +32,32 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "information", for: indexPath) as! MessageInformationTableViewCell
+        
         
         if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "information", for: indexPath) as! MessageInformationTableViewCell
             cell.infoTextView.text = "The benefits that come with owning a dog are clear-- physical activity, support, companionship -- but owning a dog could literally be saving your life. Dog ownership is associated with a reduced risk for cardiovascular disease and death, finds a new Swedish study published Friday in the journal Scientific Reports."
+            return cell
+        }
+        else if indexPath.row == 0 || indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "information", for: indexPath) as! MessageInformationTableViewCell
+            cell.infoTextView.text = "All you need is love. But a little chocolate now and then doesn't hurt."
+            return cell
         }
         else{
-            cell.infoTextView.text = "All you need is love. But a little chocolate now and then doesn't hurt."
+            let cell = tableView.dequeueReusableCell(withIdentifier: "question", for: indexPath) as! QuestionYesNoTableViewCell
+            cell.questionTextView.text = "The benefits that come with owning a dog are clear-- physical activity, support, companionship -- but owning a dog could literally be saving your life. Dog ownership is associated with a reduced risk for cardiovascular disease and death, finds a new Swedish study published Friday in the journal Scientific Reports."
+            return cell
         }
         
 //
 //        let cell = UITableViewCell()
 //        cell.textLabel?.text = "Hi"
-        return cell
+        
     }
     
     
