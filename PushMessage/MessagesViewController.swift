@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MessagesViewController: UIViewController {
-
+class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    
+    @IBOutlet var messageTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +30,15 @@ class MessagesViewController: UIViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "Hi"
+        return cell
+    }
     /*
     // MARK: - Navigation
 

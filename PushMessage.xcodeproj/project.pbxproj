@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A6FC5DD19C0D182CE00461F /* Pods_PushMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4063CA452F21A35AC9B51A63 /* Pods_PushMessage.framework */; };
+		738C58041FC14C7400B77EA6 /* MessageInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */; };
+		738C58061FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */; };
 		73F9E2F61FBE632F00E1DF54 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */; };
 		CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107901FBE096B003D2AF0 /* AppDelegate.swift */; };
 		CE6107961FBE096B003D2AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6107941FBE096B003D2AF0 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 		1B67495D4907617F46FB53F7 /* Pods-PushMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushMessage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushMessage/Pods-PushMessage.debug.xcconfig"; sourceTree = "<group>"; };
 		23CEAEC11491688895C5548A /* Pods-PushMessage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushMessage.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushMessage/Pods-PushMessage.release.xcconfig"; sourceTree = "<group>"; };
 		4063CA452F21A35AC9B51A63 /* Pods_PushMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInformationTableViewCell.swift; sourceTree = "<group>"; };
+		738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionYesNoTableViewCell.swift; sourceTree = "<group>"; };
 		73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE61078D1FBE096B003D2AF0 /* PushMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6107901FBE096B003D2AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				CE6107A91FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift */,
 				CEDE6FBB1FBE56210013117B /* ProfileViewController.swift */,
 				73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */,
+				738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */,
+				738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */,
 			);
 			path = PushMessage;
 			sourceTree = "<group>";
@@ -246,7 +252,9 @@
 				CE6107AA1FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift in Sources */,
 				CE6107A81FBE1196003D2AF0 /* DrawableViewController.swift in Sources */,
 				CE6107A61FBE1181003D2AF0 /* MessagesViewController.swift in Sources */,
+				738C58061FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift in Sources */,
 				CE6107A41FBE1169003D2AF0 /* ContainerViewController.swift in Sources */,
+				738C58041FC14C7400B77EA6 /* MessageInformationTableViewCell.swift in Sources */,
 				CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

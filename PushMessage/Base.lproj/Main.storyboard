@@ -59,6 +59,88 @@
                     <view key="view" contentMode="scaleToFill" id="Ba0-vI-S08">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jex-Vo-ppM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="109" id="zWB-dB-u5y" customClass="MessageInformationTableViewCell" customModule="PushMessage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="109"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zWB-dB-u5y" id="BE5-Eo-bBW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="108.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="abm-s4-Ezd">
+                                                    <rect key="frame" x="9" y="0.0" width="351" height="103"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="infoTextView" destination="abm-s4-Ezd" id="8hG-29-LzH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="124" id="K6x-WR-byc" customClass="QuestionYesNoTableViewCell" customModule="PushMessage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="137" width="375" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K6x-WR-byc" id="BeN-pj-dsP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q3L-2e-zhi">
+                                                    <rect key="frame" x="10" y="83" width="355" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-T5-mHP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177.5" height="30"/>
+                                                            <state key="normal" title="No"/>
+                                                            <connections>
+                                                                <action selector="noButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="TxQ-B5-ghg"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnO-BA-vtF">
+                                                            <rect key="frame" x="177.5" y="0.0" width="177.5" height="30"/>
+                                                            <state key="normal" title="Yes"/>
+                                                            <connections>
+                                                                <action selector="yesButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="9vo-iC-6ot"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-RF-veN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="q3L-2e-zhi" firstAttribute="leading" secondItem="BeN-pj-dsP" secondAttribute="leading" constant="10" id="F5G-Eh-F0l"/>
+                                                <constraint firstItem="zOe-RF-veN" firstAttribute="top" secondItem="BeN-pj-dsP" secondAttribute="top" id="O84-oL-9w0"/>
+                                                <constraint firstAttribute="trailing" secondItem="q3L-2e-zhi" secondAttribute="trailing" constant="10" id="OKF-Be-vp3"/>
+                                                <constraint firstAttribute="bottom" secondItem="q3L-2e-zhi" secondAttribute="bottom" constant="10.5" id="UIZ-Kh-abD"/>
+                                                <constraint firstItem="zOe-RF-veN" firstAttribute="centerX" secondItem="q3L-2e-zhi" secondAttribute="centerX" id="fyR-Gx-fUM"/>
+                                                <constraint firstItem="q3L-2e-zhi" firstAttribute="top" secondItem="zOe-RF-veN" secondAttribute="bottom" constant="8" symbolic="YES" id="hew-0H-1Kk"/>
+                                                <constraint firstItem="zOe-RF-veN" firstAttribute="leading" secondItem="BeN-pj-dsP" secondAttribute="leading" id="iig-qx-iGh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="questionTextView" destination="zOe-RF-veN" id="GvL-dL-KMm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MP7-u0-0mQ" id="Jk3-eq-9Wr"/>
+                                    <outlet property="delegate" destination="MP7-u0-0mQ" id="ioa-cW-Vuj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.68195421530182587" green="0.72336632013320923" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="DWq-wp-20K"/>
                     </view>
@@ -69,6 +151,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messageTableView" destination="jex-Vo-ppM" id="4pn-Dg-Cua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRe-Q1-ocz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
