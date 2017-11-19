@@ -43,7 +43,7 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let container = self.so_containerViewController {
-            container.isSideViewControllerPresented = false
+            
             let navControl = container.topViewController as! UINavigationController
             if indexPath.row == 0{
                 navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "MessageView"))!], animated: false)
@@ -53,10 +53,10 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
                 //navControl.setToolbarItems([hamButton], animated: false)
                 navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "profileVC"))!], animated: false)
             }else if indexPath.row == 2{
-                
+                container.dismiss(animated: true, completion: nil)
             }
             
-            
+            container.isSideViewControllerPresented = false
         }
         
         //let messageVC = navControl.topViewController! as! MessagesViewController

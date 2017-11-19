@@ -102,10 +102,10 @@
                                 <rect key="frame" x="16" y="9.5" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="hamburger"/>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="bpB-3N-N2n" eventType="touchUpInside" id="nds-19-jQg"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="hamButtonPressed:" destination="bpB-3N-N2n" id="DMp-OT-QkA"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
