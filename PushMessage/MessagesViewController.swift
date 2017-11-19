@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -15,7 +16,7 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getAllMessages()
         // Do any additional setup after loading the view.
     }
 
@@ -31,13 +32,40 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "Hi"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "information", for: indexPath) as! MessageInformationTableViewCell
+        
+        if indexPath.row == 1{
+            cell.infoTextView.text = "The benefits that come with owning a dog are clear-- physical activity, support, companionship -- but owning a dog could literally be saving your life. Dog ownership is associated with a reduced risk for cardiovascular disease and death, finds a new Swedish study published Friday in the journal Scientific Reports."
+        }
+        else{
+            cell.infoTextView.text = "All you need is love. But a little chocolate now and then doesn't hurt."
+        }
+        
+//
+//        let cell = UITableViewCell()
+//        cell.textLabel?.text = "Hi"
         return cell
+    }
+    
+    
+    func getAllMessages() {
+        Alamofire.request("http://13.59.54.128:4000/getMessagesForPatient").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+        }
     }
     /*
     // MARK: - Navigation
