@@ -146,7 +146,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="177.5" height="0.0"/>
                                                             <state key="normal" title="Yes"/>
                                                             <connections>
-                                                                <action selector="yesButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="9vo-iC-6ot"/>
+                                                                <action selector="questionLeftButtonTapped:" destination="MP7-u0-0mQ" eventType="touchUpInside" id="auV-R1-tPI"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-T5-mHP">
@@ -155,7 +155,7 @@
                                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="noButtonPressed:" destination="K6x-WR-byc" eventType="touchUpInside" id="TxQ-B5-ghg"/>
+                                                                <action selector="questionRightButtonTapped:" destination="MP7-u0-0mQ" eventType="touchUpInside" id="ZEf-jk-40B"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -173,7 +173,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="leftButton" destination="pnO-BA-vtF" id="wSO-qC-Xhb"/>
                                             <outlet property="questionTextView" destination="zOe-RF-veN" id="GvL-dL-KMm"/>
+                                            <outlet property="rightButton" destination="8cd-T5-mHP" id="yoe-pC-8nt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

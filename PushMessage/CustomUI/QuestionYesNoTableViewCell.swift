@@ -11,6 +11,8 @@ import UIKit
 class QuestionYesNoTableViewCell: UITableViewCell {
 
     @IBOutlet var questionTextView: UITextView!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,11 +22,5 @@ class QuestionYesNoTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-
-    
-    @IBAction func yesButtonPressed(_ sender: UIButton) {
-    }
-    @IBAction func noButtonPressed(_ sender: UIButton) {
     }
 }

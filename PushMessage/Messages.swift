@@ -13,8 +13,8 @@ import Foundation
 /* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 public class Messages {
-	public var messageid : Int?
-	public var type : String?
+	public var messageid : Int
+	public var type : String
 	public var message : String?
 	public var answertype : String?
 	public var surveyID : String?
@@ -52,9 +52,9 @@ public class Messages {
 */
 	required public init?(dictionary: NSDictionary) {
 
-		messageid = dictionary["messageid"] as? Int
-		type = dictionary["type"] as? String
-		message = dictionary["message"] as? String
+        messageid = dictionary["messageid"] as! Int
+        type = dictionary["type"] as! String
+        message = dictionary["message"] as? String
 		answertype = dictionary["answertype"] as? String
 		surveyID = dictionary["surveyID"] as? String
 		answerOption = dictionary["answerOption"] as? String
