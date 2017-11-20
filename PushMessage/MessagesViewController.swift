@@ -13,7 +13,7 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     
     @IBOutlet var messageTableView: UITableView!
-    
+    var allMessages:MessageResponse?
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllMessages()
@@ -32,8 +32,10 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return allMessages?.messages?.count ?? 0
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -69,13 +71,12 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
+                self.allMessages = MessageResponse(dictionary: json as! NSDictionary)
+                self.messageTableView.reloadData()
             }
         }
     }
+    
     /*
     // MARK: - Navigation
 
@@ -85,5 +86,4 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
-
 }

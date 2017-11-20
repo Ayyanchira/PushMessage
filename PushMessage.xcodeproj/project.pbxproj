@@ -11,6 +11,8 @@
 		738C58041FC14C7400B77EA6 /* MessageInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */; };
 		738C58061FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */; };
 		73F9E2F61FBE632F00E1DF54 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */; };
+		CE0165131FC2556100FF5534 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0165111FC2556100FF5534 /* Messages.swift */; };
+		CE0165141FC2556100FF5534 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0165121FC2556100FF5534 /* MessageResponse.swift */; };
 		CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107901FBE096B003D2AF0 /* AppDelegate.swift */; };
 		CE6107961FBE096B003D2AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6107941FBE096B003D2AF0 /* Main.storyboard */; };
 		CE6107981FBE096B003D2AF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6107971FBE096B003D2AF0 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInformationTableViewCell.swift; sourceTree = "<group>"; };
 		738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionYesNoTableViewCell.swift; sourceTree = "<group>"; };
 		73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CE0165111FC2556100FF5534 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		CE0165121FC2556100FF5534 /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
 		CE61078D1FBE096B003D2AF0 /* PushMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6107901FBE096B003D2AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6107951FBE096B003D2AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +76,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE0164F61FC2326600FF5534 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE6107971FBE096B003D2AF0 /* Assets.xcassets */,
+				CE6107991FBE096B003D2AF0 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE0164F71FC2329E00FF5534 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */,
+				738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
 		CE6107841FBE096B003D2AF0 = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +115,11 @@
 		CE61078F1FBE096B003D2AF0 /* PushMessage */ = {
 			isa = PBXGroup;
 			children = (
+				CE0164F71FC2329E00FF5534 /* CustomUI */,
 				CE6107A21FBE09B5003D2AF0 /* PushMessage.entitlements */,
+				CE0164F61FC2326600FF5534 /* Supporting Files */,
 				CE6107901FBE096B003D2AF0 /* AppDelegate.swift */,
 				CE6107941FBE096B003D2AF0 /* Main.storyboard */,
-				CE6107971FBE096B003D2AF0 /* Assets.xcassets */,
-				CE6107991FBE096B003D2AF0 /* LaunchScreen.storyboard */,
 				CE61079C1FBE096B003D2AF0 /* Info.plist */,
 				CE6107A31FBE1169003D2AF0 /* ContainerViewController.swift */,
 				CE6107A51FBE1181003D2AF0 /* MessagesViewController.swift */,
@@ -105,8 +127,8 @@
 				CE6107A91FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift */,
 				CEDE6FBB1FBE56210013117B /* ProfileViewController.swift */,
 				73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */,
-				738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */,
-				738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */,
+				CE0165121FC2556100FF5534 /* MessageResponse.swift */,
+				CE0165111FC2556100FF5534 /* Messages.swift */,
 			);
 			path = PushMessage;
 			sourceTree = "<group>";
@@ -251,9 +273,11 @@
 				CEDE6FBC1FBE56210013117B /* ProfileViewController.swift in Sources */,
 				CE6107AA1FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift in Sources */,
 				CE6107A81FBE1196003D2AF0 /* DrawableViewController.swift in Sources */,
+				CE0165141FC2556100FF5534 /* MessageResponse.swift in Sources */,
 				CE6107A61FBE1181003D2AF0 /* MessagesViewController.swift in Sources */,
 				738C58061FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift in Sources */,
 				CE6107A41FBE1169003D2AF0 /* ContainerViewController.swift in Sources */,
+				CE0165131FC2556100FF5534 /* Messages.swift in Sources */,
 				738C58041FC14C7400B77EA6 /* MessageInformationTableViewCell.swift in Sources */,
 				CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */,
 			);
