@@ -29,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
-            UIApplication.shared.registerForRemoteNotifications()
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+            
         }
     }
     
@@ -40,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let token = tokenParts.joined()
+        UserDefaults.standard.set(token, forKey: "deviceToken")
         print("Device Token: \(token)")
     }
     
@@ -54,6 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        let vc =
+      
+        let nc = NotificationCenter.default
+        nc.post(name:Notification.Name(rawValue:"MyNotification"),
+                object: nil,
+                userInfo: ["message":"Hello there!", "date":Date()])
+    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {

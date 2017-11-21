@@ -10,9 +10,25 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var notificationSwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        nameLabel.text = UserDefaults.standard.object(forKey: "name") as? String
+        ageLabel.text = UserDefaults.standard.object(forKey: "age") as? String
+        emailLabel.text = UserDefaults.standard.object(forKey: "emailID") as? String
+        genderLabel.text = UserDefaults.standard.object(forKey: "gender") as? String
+        
+        let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
+        if isRegisteredForRemoteNotifications {
+            notificationSwitch.setOn(true, animated: true)
+        } else {
+            notificationSwitch.setOn(false, animated: true)
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +42,16 @@ class ProfileViewController: UIViewController {
         if let container = self.so_containerViewController {
             container.isSideViewControllerPresented = true
         }
+    }
+    
+    @IBAction func notificationSwitchToggled(_ sender: UISwitch) {
+        if sender.isOn{
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+        else{
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+        
     }
     /*
     // MARK: - Navigation

@@ -13,12 +13,13 @@ import Foundation
 /* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 public class Messages {
-	public var messageid : Int
+	public var id : Int
 	public var type : String
 	public var message : String?
 	public var answertype : String?
 	public var surveyID : String?
 	public var answerOption : String?
+    public var answer : String?
 
 /**
     Returns an array of models based on given dictionary.
@@ -52,12 +53,13 @@ public class Messages {
 */
 	required public init?(dictionary: NSDictionary) {
 
-        messageid = dictionary["messageid"] as! Int
+        id = dictionary["id"] as! Int
         type = dictionary["type"] as! String
         message = dictionary["message"] as? String
 		answertype = dictionary["answertype"] as? String
 		surveyID = dictionary["surveyID"] as? String
 		answerOption = dictionary["answerOption"] as? String
+        answer = dictionary["answer"] as? String
 	}
 
 		
@@ -70,12 +72,13 @@ public class Messages {
 
 		let dictionary = NSMutableDictionary()
 
-		dictionary.setValue(self.messageid, forKey: "messageid")
+		dictionary.setValue(self.id, forKey: "id")
 		dictionary.setValue(self.type, forKey: "type")
 		dictionary.setValue(self.message, forKey: "message")
 		dictionary.setValue(self.answertype, forKey: "answertype")
 		dictionary.setValue(self.surveyID, forKey: "surveyID")
 		dictionary.setValue(self.answerOption, forKey: "answerOption")
+        dictionary.setValue(self.answer, forKey: "answer")
 
 		return dictionary
 	}

@@ -29,13 +29,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="II8-45-ws6">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="70"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-Sc-AV0">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="patient1@gmail.com" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-Sc-AV0">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lOc-uh-Rrd">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lOc-uh-Rrd">
                                                 <rect key="frame" x="0.0" y="40" width="355" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -280,6 +280,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-pZ-QBy">
                                         <rect key="frame" x="306" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="notificationSwitchToggled:" destination="bpB-3N-N2n" eventType="valueChanged" id="vSw-fZ-sRF"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
@@ -333,6 +336,13 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ageLabel" destination="SuZ-u2-67N" id="87f-d6-hQN"/>
+                        <outlet property="emailLabel" destination="e5u-SI-pJf" id="jdM-Tl-1ix"/>
+                        <outlet property="genderLabel" destination="AkK-ZS-5n2" id="G3h-zx-z4y"/>
+                        <outlet property="nameLabel" destination="NLI-pI-BEb" id="UPy-Gg-Zuc"/>
+                        <outlet property="notificationSwitch" destination="0yl-pZ-QBy" id="mId-pf-HbI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vE-of-CcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
