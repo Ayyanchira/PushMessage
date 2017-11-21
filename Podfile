@@ -7,7 +7,7 @@ target 'PushMessage' do
 
   # Pods for PushMessage
 	source 'https://github.com/CocoaPods/Specs.git'	
-	platform :ios,8.0
+	platform :ios,9.0
 
 	pod 'SidebarOverlay'
 	pod 'Alamofire', '~> 4.2.0'
