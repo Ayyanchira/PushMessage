@@ -10,7 +10,7 @@ import UIKit
 
 class DrawableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let menuOptions = ["Messages","Profile", "Logout"]
+    let menuOptions = ["The coach (Messenger)","Profile", "Logout"]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +53,7 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
                 //navControl.setToolbarItems([hamButton], animated: false)
                 navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "profileVC"))!], animated: false)
             }else if indexPath.row == 2{
+//                performLogout()
                 container.dismiss(animated: true, completion: nil)
             }
             

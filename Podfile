@@ -11,4 +11,6 @@ target 'PushMessage' do
 
 	pod 'SidebarOverlay'
 	pod 'Alamofire', '~> 4.2.0'
+	pod 'TJProfileImage'
+
 end
