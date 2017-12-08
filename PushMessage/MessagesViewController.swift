@@ -60,8 +60,9 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
             cell.rightButton.tag = message.messageid
             cell.leftButton.setTitle("YES", for: .normal)
             cell.leftButton.tag = message.messageid
+//            cell.questionContentView.
             if respondedMessages.contains(message.messageid){
-                cell.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                cell.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
                 cell.rightButton.isEnabled = false
                 cell.leftButton.isEnabled = false
             }

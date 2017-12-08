@@ -13,6 +13,10 @@ class QuestionYesNoTableViewCell: UITableViewCell {
     @IBOutlet var questionTextView: UITextView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
+    
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var questionContentView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
