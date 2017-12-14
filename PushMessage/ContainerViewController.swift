@@ -14,7 +14,7 @@ class ContainerViewController: SOContainerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.menuSide = .left
-        self.topViewController = self.storyboard?.instantiateViewController(withIdentifier: "MessageViewNav")
+        self.topViewController = self.storyboard?.instantiateViewController(withIdentifier: "StudyPage")
         self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "SidePanel")
         // Do any additional setup after loading the view.
     }

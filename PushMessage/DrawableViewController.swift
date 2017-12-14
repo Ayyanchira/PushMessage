@@ -10,7 +10,7 @@ import UIKit
 
 class DrawableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let menuOptions = ["The coach (Messenger)","Profile", "Logout"]
+    let menuOptions = ["Enrolled Studies","Profile", "Logout"]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +46,7 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
             
             let navControl = container.topViewController as! UINavigationController
             if indexPath.row == 0{
-                navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "MessageView"))!], animated: false)
+                navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "EnrolledStudyView"))!], animated: false)
             }else if indexPath.row == 1{
                 //var hamButton = UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: <#T##Selector?#>)
                 

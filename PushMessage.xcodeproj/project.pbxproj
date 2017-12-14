@@ -14,6 +14,7 @@
 		CE0165131FC2556100FF5534 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0165111FC2556100FF5534 /* Messages.swift */; };
 		CE0165141FC2556100FF5534 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0165121FC2556100FF5534 /* MessageResponse.swift */; };
 		CE28016F1FC4A42300B96619 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28016E1FC4A42300B96619 /* User.swift */; };
+		CE34D76F1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */; };
 		CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107901FBE096B003D2AF0 /* AppDelegate.swift */; };
 		CE6107961FBE096B003D2AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6107941FBE096B003D2AF0 /* Main.storyboard */; };
 		CE6107981FBE096B003D2AF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6107971FBE096B003D2AF0 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		CE0165111FC2556100FF5534 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		CE0165121FC2556100FF5534 /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
 		CE28016E1FC4A42300B96619 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledStudiesTableViewController.swift; sourceTree = "<group>"; };
 		CE61078D1FBE096B003D2AF0 /* PushMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6107901FBE096B003D2AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6107951FBE096B003D2AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				CEDE6FBB1FBE56210013117B /* ProfileViewController.swift */,
 				73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */,
 				CE0164F61FC2326600FF5534 /* Supporting Files */,
+				CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */,
 			);
 			path = PushMessage;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				CE6107A41FBE1169003D2AF0 /* ContainerViewController.swift in Sources */,
 				CE28016F1FC4A42300B96619 /* User.swift in Sources */,
 				CE0165131FC2556100FF5534 /* Messages.swift in Sources */,
+				CE34D76F1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift in Sources */,
 				738C58041FC14C7400B77EA6 /* MessageInformationTableViewCell.swift in Sources */,
 				CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */,
 			);
