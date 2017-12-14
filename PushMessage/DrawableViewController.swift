@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class DrawableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -53,7 +54,7 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
                 //navControl.setToolbarItems([hamButton], animated: false)
                 navControl.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "profileVC"))!], animated: false)
             }else if indexPath.row == 2{
-//                performLogout()
+                performLogout()
                 container.dismiss(animated: true, completion: nil)
             }
             
@@ -65,6 +66,34 @@ class DrawableViewController: UIViewController, UITableViewDelegate, UITableView
        // so_containerViewController?.topViewController?.performSegue(withIdentifier: "profileView", sender: nil)
     }
 
+    
+    func performLogout() {
+        let token = UserDefaults.standard.object(forKey: "authToken")
+        let parameters = [
+            "token" : token!
+        ]
+        Alamofire.request("http://18.217.3.86:5000/patientlogoutapi", method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            //error checking
+            guard response.result.error == nil else {
+                // got an error in getting the data, need to handle it
+                print("error calling GET on /todos/1")
+                print(response.result.error!)
+                return
+            }
+            
+            //response check
+            guard let json = response.result.value as? [String: Any] else {
+                print("didn't get formatted JSON from API")
+                print("Error: \(String(describing: response.result.error))")
+                return
+            }
+            
+            if json["code"] as? Int == 200{
+                self.so_containerViewController?.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+    }
     /*
     // MARK: - Navigation
 

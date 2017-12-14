@@ -13,7 +13,7 @@ class EnrolledStudiesTableViewController: UITableViewController {
 
     var studyList:[Study] = []
     struct Study:Codable {
-        let studyID:Int
+        let studyid:Int
         let name:String
         let description:String
     }

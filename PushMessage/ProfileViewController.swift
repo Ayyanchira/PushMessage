@@ -17,9 +17,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var notificationSwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let age = UserDefaults.standard.object(forKey: "age") as? Int
         nameLabel.text = UserDefaults.standard.object(forKey: "name") as? String
-        ageLabel.text = "\(age!)"
+        ageLabel.text = UserDefaults.standard.object(forKey: "age") as? String
         emailLabel.text = UserDefaults.standard.object(forKey: "emailID") as? String
         genderLabel.text = UserDefaults.standard.object(forKey: "gender") as? String
         
