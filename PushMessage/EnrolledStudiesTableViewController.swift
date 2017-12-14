@@ -12,53 +12,68 @@ import Alamofire
 class EnrolledStudiesTableViewController: UITableViewController {
 
     var studyList:[Study] = []
+    
     struct Study:Codable {
         let studyid:Int
         let name:String
         let description:String
     }
     
+    struct StudyResponse:Codable {
+        let code:Int
+        let studies:[Study]?
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        fetchStudies(patientId: 1)
+        fetchStudies()
     }
-
-    func fetchStudies(patientId:Int) {
-        let request = NSMutableURLRequest(url: NSURL(string: "http://13.59.54.128:4000/enrolledStudy")! as URL,
+    
+    func fetchStudies() {
+        
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "cacced53-8746-cce9-2ecc-1b589728f83c"
+        ]
+        let token = UserDefaults.standard.object(forKey: "authToken") as! String
+        let parameters = ["token": token]
+        
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/getStudiesForPatientapi")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = postData as Data
+        }catch let error as NSError {
+            print(error.localizedDescription)
+        }
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                print(error ?? "Some error in response")
+                print(error)
             } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
                 do{
-                    try self.studyList = JSONDecoder().decode([Study].self, from: data!)
-                    print("Decode successful")
+                    let studyResponse = try JSONDecoder().decode(StudyResponse.self, from: data!)
+                    self.studyList = studyResponse.studies!
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                    
                 }catch let error as NSError {
                     print(error.localizedDescription)
                 }
+                
             }
         })
-        
         dataTask.resume()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
