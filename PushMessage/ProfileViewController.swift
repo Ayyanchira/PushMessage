@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController {
             UIApplication.shared.registerForRemoteNotifications()
         }
         else{
-            UIApplication.shared.registerForRemoteNotifications()
+            UIApplication.shared.unregisterForRemoteNotifications()
         }
         
     }
