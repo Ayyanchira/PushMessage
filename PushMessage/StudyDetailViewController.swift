@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import ResearchKit
 
-class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, ORKTaskViewControllerDelegate {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        print("Survey Completed")
+        taskViewController.dismiss(animated: true, completion: nil)
+    }
+    
     
     
 
@@ -165,6 +171,14 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
             } else {
                 do {
                     let surveyResponse = try JSONDecoder().decode(SurveyResponse.self, from: data!)
+                    let surveyTask = SurveyTask()
+                    
+                    DispatchQueue.main.async {
+                        let taskViewController = ORKTaskViewController(task: surveyTask.getOrderedTasksWithRulesWith(surveyID: sender.tag, questionList: surveyResponse.questions), taskRun: nil)
+                        taskViewController.delegate = self
+                        self.present(taskViewController, animated: true, completion: nil)
+                    }
+                    
                     print("Got survey question")
                 }catch let error as NSError {
                     print(error.localizedDescription)
