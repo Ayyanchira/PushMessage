@@ -112,6 +112,9 @@ class EnrolledStudiesTableViewController: UITableViewController {
 //            self.tableArray.remove(at: indexPath.row)
 //            tableView.deleteRows(at: [indexPath], with: .fade)
 //            print(self.tableArray)
+            self.withdrawStudyID(studyID: self.studyList[indexPath.row].studyid)
+            
+            //tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
         return [delete]
@@ -130,7 +133,8 @@ class EnrolledStudiesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -151,6 +155,38 @@ class EnrolledStudiesTableViewController: UITableViewController {
         //fetchSurveyList
     }
 
+    func withdrawStudyID(studyID:Int){
+        let token = UserDefaults.standard.object(forKey: "authToken") as! String
+        var parameters = [
+            "token" : token,
+            "studyid" : "\(studyID)"
+        ]
+        
+        Alamofire.request("http://18.217.3.86:5000/withdrawfromstudyapi", method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
+            //error checking
+            guard response.result.error == nil else {
+                // got an error in getting the data, need to handle it
+                print("error calling GET on /todos/1")
+                
+                print(response.result.error!)
+                return
+            }
+            
+            //response check
+            guard let json = response.result.value as? [String: Any] else {
+                print("didn't get formatted JSON from API")
+                print("Error: \(String(describing: response.result.error))")
+                return
+            }
+            
+            print("reached here")
+            DispatchQueue.main.async {
+                
+                self.fetchStudies()
+            }
+            
+        }
+    }
     
     func fetchMessages(studyID:Int) {
         let headers = [
