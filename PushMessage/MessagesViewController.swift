@@ -130,7 +130,7 @@ class MessagesViewController: UIViewController,UITableViewDelegate,UITableViewDa
         Alamofire.request("http://18.217.3.86:5000/notifyanswerapi", method: HTTPMethod.post, parameters: parameter, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
             self.getAllMessages()
         }
-        
+    
     }
     
     func getAllMessages() {

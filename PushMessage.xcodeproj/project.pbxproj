@@ -13,8 +13,14 @@
 		73F9E2F61FBE632F00E1DF54 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */; };
 		CE0165131FC2556100FF5534 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0165111FC2556100FF5534 /* Messages.swift */; };
 		CE0165141FC2556100FF5534 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0165121FC2556100FF5534 /* MessageResponse.swift */; };
+		CE27913D1FE36075002C3FE2 /* StudyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27913C1FE36075002C3FE2 /* StudyDetailViewController.swift */; };
+		CE27913F1FE36631002C3FE2 /* MessageTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27913E1FE36631002C3FE2 /* MessageTextTableViewCell.swift */; };
+		CE2791411FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2791401FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift */; };
+		CE2791431FE36D6A002C3FE2 /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2791421FE36D6A002C3FE2 /* SurveyTableViewCell.swift */; };
 		CE28016F1FC4A42300B96619 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28016E1FC4A42300B96619 /* User.swift */; };
 		CE34D76F1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */; };
+		CE483A151FE34A16006CDB73 /* MessageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483A141FE34A16006CDB73 /* MessageListResponse.swift */; };
+		CE483A171FE34AD2006CDB73 /* SurveyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483A161FE34AD2006CDB73 /* SurveyListResponse.swift */; };
 		CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107901FBE096B003D2AF0 /* AppDelegate.swift */; };
 		CE6107961FBE096B003D2AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6107941FBE096B003D2AF0 /* Main.storyboard */; };
 		CE6107981FBE096B003D2AF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6107971FBE096B003D2AF0 /* Assets.xcassets */; };
@@ -35,8 +41,14 @@
 		73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE0165111FC2556100FF5534 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		CE0165121FC2556100FF5534 /* MessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageResponse.swift; sourceTree = "<group>"; };
+		CE27913C1FE36075002C3FE2 /* StudyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDetailViewController.swift; sourceTree = "<group>"; };
+		CE27913E1FE36631002C3FE2 /* MessageTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextTableViewCell.swift; sourceTree = "<group>"; };
+		CE2791401FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionaireMessageTableViewCell.swift; sourceTree = "<group>"; };
+		CE2791421FE36D6A002C3FE2 /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
 		CE28016E1FC4A42300B96619 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledStudiesTableViewController.swift; sourceTree = "<group>"; };
+		CE483A141FE34A16006CDB73 /* MessageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListResponse.swift; sourceTree = "<group>"; };
+		CE483A161FE34AD2006CDB73 /* SurveyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListResponse.swift; sourceTree = "<group>"; };
 		CE61078D1FBE096B003D2AF0 /* PushMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6107901FBE096B003D2AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6107951FBE096B003D2AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +106,9 @@
 			children = (
 				738C58031FC14C7400B77EA6 /* MessageInformationTableViewCell.swift */,
 				738C58051FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift */,
+				CE27913E1FE36631002C3FE2 /* MessageTextTableViewCell.swift */,
+				CE2791401FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift */,
+				CE2791421FE36D6A002C3FE2 /* SurveyTableViewCell.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -104,6 +119,8 @@
 				CE0165121FC2556100FF5534 /* MessageResponse.swift */,
 				CE0165111FC2556100FF5534 /* Messages.swift */,
 				CE28016E1FC4A42300B96619 /* User.swift */,
+				CE483A141FE34A16006CDB73 /* MessageListResponse.swift */,
+				CE483A161FE34AD2006CDB73 /* SurveyListResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -143,6 +160,7 @@
 				73F9E2F51FBE632F00E1DF54 /* LoginViewController.swift */,
 				CE0164F61FC2326600FF5534 /* Supporting Files */,
 				CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */,
+				CE27913C1FE36075002C3FE2 /* StudyDetailViewController.swift */,
 			);
 			path = PushMessage;
 			sourceTree = "<group>";
@@ -285,17 +303,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE483A151FE34A16006CDB73 /* MessageListResponse.swift in Sources */,
 				73F9E2F61FBE632F00E1DF54 /* LoginViewController.swift in Sources */,
+				CE27913F1FE36631002C3FE2 /* MessageTextTableViewCell.swift in Sources */,
+				CE2791431FE36D6A002C3FE2 /* SurveyTableViewCell.swift in Sources */,
 				CEDE6FBC1FBE56210013117B /* ProfileViewController.swift in Sources */,
 				CE6107AA1FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift in Sources */,
 				CE6107A81FBE1196003D2AF0 /* DrawableViewController.swift in Sources */,
+				CE27913D1FE36075002C3FE2 /* StudyDetailViewController.swift in Sources */,
 				CE0165141FC2556100FF5534 /* MessageResponse.swift in Sources */,
 				CE6107A61FBE1181003D2AF0 /* MessagesViewController.swift in Sources */,
 				738C58061FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift in Sources */,
+				CE2791411FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift in Sources */,
 				CE6107A41FBE1169003D2AF0 /* ContainerViewController.swift in Sources */,
 				CE28016F1FC4A42300B96619 /* User.swift in Sources */,
 				CE0165131FC2556100FF5534 /* Messages.swift in Sources */,
 				CE34D76F1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift in Sources */,
+				CE483A171FE34AD2006CDB73 /* SurveyListResponse.swift in Sources */,
 				738C58041FC14C7400B77EA6 /* MessageInformationTableViewCell.swift in Sources */,
 				CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */,
 			);

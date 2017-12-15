@@ -12,7 +12,8 @@ import Alamofire
 class EnrolledStudiesTableViewController: UITableViewController {
 
     var studyList:[Study] = []
-    
+    var messageList:[Message] = []
+    var surveyList:[Survey] = []
     struct Study:Codable {
         let studyid:Int
         let name:String
@@ -142,23 +143,121 @@ class EnrolledStudiesTableViewController: UITableViewController {
 
     }
     
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let studyid = studyList[indexPath.row].studyid
+        //fetchMessages
+        fetchMessages(studyID: studyid)
+        
+        //fetchSurveyList
     }
-    */
 
-    /*
+    
+    func fetchMessages(studyID:Int) {
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "cacced53-8746-cce9-2ecc-1b589728f83c"
+        ]
+        let token = UserDefaults.standard.object(forKey: "authToken") as! String
+        let parameters = ["token": token,
+                          "studyid":"\(studyID)"]
+        
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/getmessagesforpatientapi")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = postData as Data
+        }catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+                do{
+                    let messageResponse = try JSONDecoder().decode(MessageListResponse.self, from: data!)
+                    self.messageList = messageResponse.messages!
+                    self.fetchSurveyList(studyID: studyID)
+                    //fetch surveylist
+                }catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+                
+            }
+        })
+        dataTask.resume()
+    }
+    
+    func fetchSurveyList(studyID:Int){
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "cacced53-8746-cce9-2ecc-1b589728f83c"
+        ]
+        let token = UserDefaults.standard.object(forKey: "authToken") as! String
+        let parameters = ["token": token,
+                          "studyid":"\(studyID)"]
+        
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/getsurveysforpatientapi")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = postData as Data
+        }catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+                do{
+                    let surveyListResponse = try JSONDecoder().decode(SurveyListResponse.self, from: data!)
+                    self.surveyList = surveyListResponse.surveys!
+                    print("No problem till fetching messages and survey list")
+                    
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "studyDetails", sender: nil)
+                    }
+                    
+                    
+                    //go to next view controller
+                }catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+                
+            }
+        })
+        dataTask.resume()
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var studyDetailVC = segue.destination as? StudyDetailViewController
+        studyDetailVC?.messageList = self.messageList
+        studyDetailVC?.surveyList = self.surveyList
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
     }
-    */
+ 
 
 }

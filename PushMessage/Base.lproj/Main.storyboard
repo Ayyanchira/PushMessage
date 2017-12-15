@@ -208,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRe-Q1-ocz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4096.8000000000002" y="115.59220389805098"/>
+            <point key="canvasLocation" x="3193" y="116"/>
         </scene>
         <!--Enrolled Studies-->
         <scene sceneID="29W-Hn-ZIF">
@@ -234,10 +234,175 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Enrolled Studies" id="kBA-aZ-hga"/>
+                    <connections>
+                        <segue destination="8RC-Wp-Rgv" kind="show" identifier="studyDetails" id="b6x-tF-svB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0U-A9-dUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2167" y="-558"/>
+        </scene>
+        <!--Study Detail View Controller-->
+        <scene sceneID="osv-XW-LBI">
+            <objects>
+                <viewController id="8RC-Wp-Rgv" customClass="StudyDetailViewController" customModule="PushMessage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rNa-U9-b09">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PEq-FH-0PX">
+                                <rect key="frame" x="16" y="74" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Messages"/>
+                                    <segment title="Surveys"/>
+                                </segments>
+                                <connections>
+                                    <action selector="messageSurveyTogglePressed:" destination="8RC-Wp-Rgv" eventType="valueChanged" id="17K-cm-hXo"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xtk-Xi-3Oe">
+                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellBasic" rowHeight="78" id="f8H-Ec-P9O" customClass="MessageTextTableViewCell" customModule="PushMessage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f8H-Ec-P9O" id="eOd-5P-mYn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbC-AO-4eK">
+                                                    <rect key="frame" x="5" y="5" width="365" height="67.5"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bbC-AO-4eK" firstAttribute="top" secondItem="eOd-5P-mYn" secondAttribute="top" constant="5" id="29O-UY-cBd"/>
+                                                <constraint firstAttribute="trailing" secondItem="bbC-AO-4eK" secondAttribute="trailing" constant="5" id="II9-S3-b8n"/>
+                                                <constraint firstAttribute="bottom" secondItem="bbC-AO-4eK" secondAttribute="bottom" constant="5" id="tJL-qG-pvd"/>
+                                                <constraint firstItem="bbC-AO-4eK" firstAttribute="leading" secondItem="eOd-5P-mYn" secondAttribute="leading" constant="5" id="wCN-ge-X4y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="messageTextView" destination="bbC-AO-4eK" id="Abz-JV-WTA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="126" id="szr-FP-X3p" customClass="QuestionaireMessageTableViewCell" customModule="PushMessage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="375" height="126"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="szr-FP-X3p" id="EEK-1H-Xgs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atQ-xe-9Zk">
+                                                    <rect key="frame" x="5" y="5" width="365" height="91"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqu-6k-VRe">
+                                                    <rect key="frame" x="157" y="95" width="60" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PI2-W9-y1w">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <state key="normal" title="No"/>
+                                                            <connections>
+                                                                <action selector="noButtonPressed:" destination="8RC-Wp-Rgv" eventType="touchUpInside" id="H5u-Px-q8a"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJ5-Ti-GIt">
+                                                            <rect key="frame" x="30" y="0.0" width="30" height="30"/>
+                                                            <state key="normal" title="Yes"/>
+                                                            <connections>
+                                                                <action selector="yesButtonPressed:" destination="8RC-Wp-Rgv" eventType="touchUpInside" id="LmO-DL-4pD"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="atQ-xe-9Zk" firstAttribute="leading" secondItem="EEK-1H-Xgs" secondAttribute="leading" constant="5" id="3EK-cK-Dm6"/>
+                                                <constraint firstItem="Qqu-6k-VRe" firstAttribute="top" secondItem="atQ-xe-9Zk" secondAttribute="bottom" constant="-1" id="D5b-MU-Ss8"/>
+                                                <constraint firstItem="atQ-xe-9Zk" firstAttribute="top" secondItem="EEK-1H-Xgs" secondAttribute="top" constant="5" id="Ucs-gA-SLb"/>
+                                                <constraint firstItem="Qqu-6k-VRe" firstAttribute="centerX" secondItem="EEK-1H-Xgs" secondAttribute="centerX" id="VB8-zi-H8a"/>
+                                                <constraint firstAttribute="trailing" secondItem="atQ-xe-9Zk" secondAttribute="trailing" constant="5" id="l8V-xn-xep"/>
+                                                <constraint firstAttribute="bottom" secondItem="atQ-xe-9Zk" secondAttribute="bottom" constant="30" id="rEf-J2-ybN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="messageTextView" destination="atQ-xe-9Zk" id="aVb-C2-SfI"/>
+                                            <outlet property="noButton" destination="PI2-W9-y1w" id="dJs-Ha-pTY"/>
+                                            <outlet property="yesButton" destination="WJ5-Ti-GIt" id="ERP-h1-tfq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="surveyCell" rowHeight="115" id="r7k-J7-hYT" customClass="SurveyTableViewCell" customModule="PushMessage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="232" width="375" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r7k-J7-hYT" id="61u-SB-m5B">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azM-po-9aJ">
+                                                    <rect key="frame" x="5" y="5" width="365" height="69"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pP-jl-tV1">
+                                                    <rect key="frame" x="146" y="76" width="83" height="30"/>
+                                                    <state key="normal" title="Take Survey"/>
+                                                    <connections>
+                                                        <action selector="takeSurveyButtonPressed:" destination="8RC-Wp-Rgv" eventType="touchUpInside" id="dsh-U1-H2B"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="azM-po-9aJ" secondAttribute="trailing" constant="5" id="8dT-Sj-B87"/>
+                                                <constraint firstItem="azM-po-9aJ" firstAttribute="top" secondItem="61u-SB-m5B" secondAttribute="top" constant="5" id="K8Z-Lw-hlV"/>
+                                                <constraint firstItem="azM-po-9aJ" firstAttribute="leading" secondItem="61u-SB-m5B" secondAttribute="leading" constant="5" id="KV3-jz-dM5"/>
+                                                <constraint firstItem="1pP-jl-tV1" firstAttribute="top" secondItem="azM-po-9aJ" secondAttribute="bottom" constant="2" id="bQV-pA-Qge"/>
+                                                <constraint firstItem="1pP-jl-tV1" firstAttribute="centerX" secondItem="61u-SB-m5B" secondAttribute="centerX" id="ecE-PT-74z"/>
+                                                <constraint firstAttribute="bottom" secondItem="azM-po-9aJ" secondAttribute="bottom" constant="40" id="reL-6Z-2Db"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="surveyTextView" destination="azM-po-9aJ" id="LkO-go-rLQ"/>
+                                            <outlet property="takeSurveyButton" destination="1pP-jl-tV1" id="csR-fs-SOx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8RC-Wp-Rgv" id="XTR-Jc-gmJ"/>
+                                    <outlet property="delegate" destination="8RC-Wp-Rgv" id="y6Z-cE-fJf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DTO-82-7yI" firstAttribute="trailing" secondItem="PEq-FH-0PX" secondAttribute="trailing" constant="16" id="L7u-CU-kXk"/>
+                            <constraint firstItem="DTO-82-7yI" firstAttribute="trailing" secondItem="Xtk-Xi-3Oe" secondAttribute="trailing" id="Otf-Cj-9xt"/>
+                            <constraint firstItem="PEq-FH-0PX" firstAttribute="leading" secondItem="DTO-82-7yI" secondAttribute="leading" constant="16" id="RTl-54-I9u"/>
+                            <constraint firstItem="Xtk-Xi-3Oe" firstAttribute="top" secondItem="PEq-FH-0PX" secondAttribute="bottom" constant="10" id="Uh5-vx-2jK"/>
+                            <constraint firstItem="PEq-FH-0PX" firstAttribute="top" secondItem="DTO-82-7yI" secondAttribute="top" constant="10" id="b2N-7V-Fd8"/>
+                            <constraint firstItem="PEq-FH-0PX" firstAttribute="centerX" secondItem="DTO-82-7yI" secondAttribute="centerX" id="iFK-Ua-zF3"/>
+                            <constraint firstItem="Xtk-Xi-3Oe" firstAttribute="leading" secondItem="DTO-82-7yI" secondAttribute="leading" id="ltL-gB-ycf"/>
+                            <constraint firstItem="DTO-82-7yI" firstAttribute="bottom" secondItem="Xtk-Xi-3Oe" secondAttribute="bottom" id="sLg-cd-C76"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DTO-82-7yI"/>
+                    </view>
+                    <connections>
+                        <outlet property="segmentControl" destination="PEq-FH-0PX" id="EIM-Qz-ULl"/>
+                        <outlet property="tableView" destination="Xtk-Xi-3Oe" id="EI1-uA-4lV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BND-1t-UBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3192.8000000000002" y="-558.17091454272872"/>
         </scene>
         <!--Profile-->
         <scene sceneID="gdK-NP-hLt">
