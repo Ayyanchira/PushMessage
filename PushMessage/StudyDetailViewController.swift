@@ -115,11 +115,14 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
             } else {
                 do {
                     let surveyResponse = try JSONDecoder().decode(MessageSubmitResponse.self, from: data!)
-                    print("Message response submitted")
                     if surveyResponse.code == 200{
-                        print("Submitted successfully")
+                        let alert = UIAlertController(title: "Success", message: "Thank you responding", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }else{
-                        print("Cannot submit again")
+                        let alert = UIAlertController(title: "Failure", message: "You have already submitted the response for this question", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                     //add the responded id to array
                 }catch let error as NSError {
