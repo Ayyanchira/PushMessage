@@ -10,18 +10,12 @@ import UIKit
 import ResearchKit
 
 class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, ORKTaskViewControllerDelegate {
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        print("Survey Completed")
-        taskViewController.dismiss(animated: true, completion: nil)
-    }
     
-    
-    
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     var messageList:[Message]?
     var surveyList:[Survey]?
+    var questions:[Questions] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -176,6 +170,7 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
                     DispatchQueue.main.async {
                         let taskViewController = ORKTaskViewController(task: surveyTask.getOrderedTasksWithRulesWith(surveyID: sender.tag, questionList: surveyResponse.questions), taskRun: nil)
                         taskViewController.delegate = self
+                        self.questions = surveyResponse.questions
                         self.present(taskViewController, animated: true, completion: nil)
                     }
                     
@@ -189,6 +184,95 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
         dataTask.resume()
         
     }
+    
+    
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        print("Survey Completed")
+        
+        if reason == ORKTaskViewControllerFinishReason.discarded || reason == ORKTaskViewControllerFinishReason.failed{
+            taskViewController.dismiss(animated: true, completion: nil)
+            return
+        }
+        var answers:[[String:Any]] = []
+        for question in self.questions{
+            var answerString = ""
+            if let stepResult = taskViewController.result.stepResult(forStepIdentifier:"\(question.questionid)"){
+                var results = stepResult.results
+                switch question.type{
+                case "likert":
+                    let scaleAnswer = results![0] as! ORKScaleQuestionResult
+                    if let answer = scaleAnswer.scaleAnswer as? Int{
+                       answerString = "\(answer)"
+                    }else{
+                        answerString = "NA"
+                    }
+                    
+                    
+                case "multiple":
+                    let scaleAnswer = results![0] as! ORKChoiceQuestionResult
+                    if let answer = scaleAnswer.choiceAnswers{
+                        answerString = "\(answer[0] as! Int)"
+                    }else{
+                        answerString = "NA"
+                    }
+                    
+                    
+                case "text":
+                    let textAnswer = results![0] as! ORKTextQuestionResult
+                    if let answer = textAnswer.textAnswer{
+                        answerString = answer
+                    }else{
+                        answerString = "NA"
+                    }
+                    
+                default:
+                    print("Default case executed")
+                    
+                }
+                
+                let surveyObject = ["questionid":"\(question.questionid)",
+                "answer": answerString]
+                answers.append(surveyObject)
+            }
+                
+        }
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "f14d778a-405e-c65f-72e4-e69deec852d5"
+        ]
+        let token = UserDefaults.standard.object(forKey: "authToken") as! String
+        let parameters = [
+            "token": token,
+            "answers": answers
+            ] as [String : Any]
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/sendanswerapi")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = postData as Data
+        }catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                do {
+                    let respo = try JSONDecoder().decode(SubmitSurveyResponse.self, from: data!)
+                    print("Finally done")
+                }catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        })
+        
+        taskViewController.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
@@ -199,4 +283,19 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     */
 
+}
+
+struct SurveyAnswer:Codable {
+    let questionid:String
+    let answer:String
+    
+//    init(questionID:String, answer:String) {
+//        self.questionid = questionID
+//        self.answer = answer
+//    }
+}
+
+struct SubmitSurveyResponse:Codable {
+    let code:Int
+    let status:String
 }
