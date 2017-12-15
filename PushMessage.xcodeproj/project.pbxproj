@@ -21,6 +21,7 @@
 		CE2791471FE37789002C3FE2 /* MessageSubmitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2791461FE37789002C3FE2 /* MessageSubmitResponse.swift */; };
 		CE28016F1FC4A42300B96619 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28016E1FC4A42300B96619 /* User.swift */; };
 		CE34D76F1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */; };
+		CE35E3811FE4226D00EF1B03 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35E3801FE4226D00EF1B03 /* AppStorage.swift */; };
 		CE483A151FE34A16006CDB73 /* MessageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483A141FE34A16006CDB73 /* MessageListResponse.swift */; };
 		CE483A171FE34AD2006CDB73 /* SurveyListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483A161FE34AD2006CDB73 /* SurveyListResponse.swift */; };
 		CE6107911FBE096B003D2AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6107901FBE096B003D2AF0 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		CE2791461FE37789002C3FE2 /* MessageSubmitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSubmitResponse.swift; sourceTree = "<group>"; };
 		CE28016E1FC4A42300B96619 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledStudiesTableViewController.swift; sourceTree = "<group>"; };
+		CE35E3801FE4226D00EF1B03 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		CE483A141FE34A16006CDB73 /* MessageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListResponse.swift; sourceTree = "<group>"; };
 		CE483A161FE34AD2006CDB73 /* SurveyListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListResponse.swift; sourceTree = "<group>"; };
 		CE61078D1FBE096B003D2AF0 /* PushMessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushMessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 				CE483A161FE34AD2006CDB73 /* SurveyListResponse.swift */,
 				CE2791441FE37326002C3FE2 /* SurveyResponse.swift */,
 				CE2791461FE37789002C3FE2 /* MessageSubmitResponse.swift */,
+				CE35E3801FE4226D00EF1B03 /* AppStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				CE2791431FE36D6A002C3FE2 /* SurveyTableViewCell.swift in Sources */,
 				CEDE6FBC1FBE56210013117B /* ProfileViewController.swift in Sources */,
 				CE6107AA1FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift in Sources */,
+				CE35E3811FE4226D00EF1B03 /* AppStorage.swift in Sources */,
 				CE6107A81FBE1196003D2AF0 /* DrawableViewController.swift in Sources */,
 				CE27913D1FE36075002C3FE2 /* StudyDetailViewController.swift in Sources */,
 				CE2791471FE37789002C3FE2 /* MessageSubmitResponse.swift in Sources */,

@@ -45,6 +45,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = tokenParts.joined()
         UserDefaults.standard.set(token, forKey: "deviceToken")
         print("Device Token: \(token)")
+        UserDefaults.standard.set(token, forKey: "deviceToken")
+        submitNewDeviceToken(token: token)
+        
+    }
+    
+    func submitNewDeviceToken(token:String) {
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "9a1acc2b-8b92-9244-4e64-c4e8525e8870"
+        ]
+        let parameters = [
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRpZW50aWQiOjcsIm5hbWUiOiJwYXRpZW50MSIsImVtYWlsIjoicGF0aWVudDFAZ21haWwuY29tIiwiYWdlIjoiMjIiLCJnZW5kZXIiOiJNYWxlIiwiaWF0IjoxNTEzMjg3MTQ5fQ.8cHXlx2ymas8k8GhgB5zItDBIE8PzuhCLYi5kbIfguw",
+            "device": token
+            ] as [String : Any]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/updatedevicetokenapi")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = postData as Data
+        }catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                do {
+                    let surveyResponse = try JSONDecoder().decode(MessageSubmitResponse.self, from: data!)
+                    if surveyResponse.code == 200{
+                       print("Device token updated")
+                    }else{
+                        print("Failed to update device token")
+                    }
+                    //add the responded id to array
+                }catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        })
+        
+        dataTask.resume()
     }
     
     func application(_ application: UIApplication,
