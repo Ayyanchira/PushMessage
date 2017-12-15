@@ -55,19 +55,15 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
             //cell.textLabel?.text = messageList![indexPath.row].name
             switch messageList![indexPath.row].type{
             case "Informational","Reminder":
-                print("hi")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cellBasic", for: indexPath) as! MessageTextTableViewCell
                 cell.messageTextView.text = messageList![indexPath.row].name
                 return cell
             case "Yes/No":
-                print("Hi")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! QuestionaireMessageTableViewCell
                 cell.messageTextView.text = messageList![indexPath.row].name
                 cell.yesButton.tag = messageList![indexPath.row].studyid
                 cell.noButton.tag = messageList![indexPath.row].studyid
                 return cell
-           
-                
             default:
                 print("something went wrong in message list")
             }
@@ -86,12 +82,95 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     @IBAction func yesButtonPressed(_ sender: UIButton) {
+        var selectedButton = "Yes"
+        if sender.titleLabel?.text == "No" {
+            selectedButton = "No"
+        }
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "9a1acc2b-8b92-9244-4e64-c4e8525e8870"
+        ]
+        let parameters = [
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRpZW50aWQiOjcsIm5hbWUiOiJwYXRpZW50MSIsImVtYWlsIjoicGF0aWVudDFAZ21haWwuY29tIiwiYWdlIjoiMjIiLCJnZW5kZXIiOiJNYWxlIiwiaWF0IjoxNTEzMjg3MTQ5fQ.8cHXlx2ymas8k8GhgB5zItDBIE8PzuhCLYi5kbIfguw",
+            "messageid": "\(sender.tag)",
+            "answer": selectedButton
+            ] as [String : Any]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/sendmessageanswerapi")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = postData as Data
+        }catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                do {
+                    let surveyResponse = try JSONDecoder().decode(MessageSubmitResponse.self, from: data!)
+                    print("Message response submitted")
+                    if surveyResponse.code == 200{
+                        print("Submitted successfully")
+                    }else{
+                        print("Cannot submit again")
+                    }
+                    //add the responded id to array
+                }catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        })
+        
+        dataTask.resume()
     }
 
-    @IBAction func noButtonPressed(_ sender: UIButton) {
-    }
     
     @IBAction func takeSurveyButtonPressed(_ sender: UIButton) {
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "03cd4a87-9c9b-610f-2e7d-d0b43ddc4c9b"
+        ]
+         let token = UserDefaults.standard.object(forKey: "authToken") as! String
+        let parameters = [
+            "token": token,
+            "surveyid": "\(sender.tag)"
+            ] as [String : Any]
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/getsquestionsforsurveyapi")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            request.httpBody = postData as Data
+        }catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                do {
+                    let surveyResponse = try JSONDecoder().decode(SurveyResponse.self, from: data!)
+                    print("Got survey question")
+                }catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        })
+        
+        dataTask.resume()
+        
     }
     /*
     // MARK: - Navigation

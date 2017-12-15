@@ -310,7 +310,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <state key="normal" title="No"/>
                                                             <connections>
-                                                                <action selector="noButtonPressed:" destination="8RC-Wp-Rgv" eventType="touchUpInside" id="H5u-Px-q8a"/>
+                                                                <action selector="yesButtonPressed:" destination="8RC-Wp-Rgv" eventType="touchUpInside" id="Qn2-bR-ZIp"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJ5-Ti-GIt">

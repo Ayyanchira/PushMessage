@@ -17,6 +17,8 @@
 		CE27913F1FE36631002C3FE2 /* MessageTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27913E1FE36631002C3FE2 /* MessageTextTableViewCell.swift */; };
 		CE2791411FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2791401FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift */; };
 		CE2791431FE36D6A002C3FE2 /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2791421FE36D6A002C3FE2 /* SurveyTableViewCell.swift */; };
+		CE2791451FE37326002C3FE2 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2791441FE37326002C3FE2 /* SurveyResponse.swift */; };
+		CE2791471FE37789002C3FE2 /* MessageSubmitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2791461FE37789002C3FE2 /* MessageSubmitResponse.swift */; };
 		CE28016F1FC4A42300B96619 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE28016E1FC4A42300B96619 /* User.swift */; };
 		CE34D76F1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */; };
 		CE483A151FE34A16006CDB73 /* MessageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483A141FE34A16006CDB73 /* MessageListResponse.swift */; };
@@ -45,6 +47,8 @@
 		CE27913E1FE36631002C3FE2 /* MessageTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextTableViewCell.swift; sourceTree = "<group>"; };
 		CE2791401FE36727002C3FE2 /* QuestionaireMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionaireMessageTableViewCell.swift; sourceTree = "<group>"; };
 		CE2791421FE36D6A002C3FE2 /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
+		CE2791441FE37326002C3FE2 /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
+		CE2791461FE37789002C3FE2 /* MessageSubmitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSubmitResponse.swift; sourceTree = "<group>"; };
 		CE28016E1FC4A42300B96619 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE34D76E1FE2D62800EF898C /* EnrolledStudiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrolledStudiesTableViewController.swift; sourceTree = "<group>"; };
 		CE483A141FE34A16006CDB73 /* MessageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListResponse.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				CE28016E1FC4A42300B96619 /* User.swift */,
 				CE483A141FE34A16006CDB73 /* MessageListResponse.swift */,
 				CE483A161FE34AD2006CDB73 /* SurveyListResponse.swift */,
+				CE2791441FE37326002C3FE2 /* SurveyResponse.swift */,
+				CE2791461FE37789002C3FE2 /* MessageSubmitResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,6 +317,8 @@
 				CE6107AA1FBE1E6E003D2AF0 /* SidebarCustomTableViewCell.swift in Sources */,
 				CE6107A81FBE1196003D2AF0 /* DrawableViewController.swift in Sources */,
 				CE27913D1FE36075002C3FE2 /* StudyDetailViewController.swift in Sources */,
+				CE2791471FE37789002C3FE2 /* MessageSubmitResponse.swift in Sources */,
+				CE2791451FE37326002C3FE2 /* SurveyResponse.swift in Sources */,
 				CE0165141FC2556100FF5534 /* MessageResponse.swift in Sources */,
 				CE6107A61FBE1181003D2AF0 /* MessagesViewController.swift in Sources */,
 				738C58061FC14F1A00B77EA6 /* QuestionYesNoTableViewCell.swift in Sources */,
