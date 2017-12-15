@@ -193,6 +193,7 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
             taskViewController.dismiss(animated: true, completion: nil)
             return
         }
+        taskViewController.dismiss(animated: true, completion: nil)
         var answers:[[String:Any]] = []
         for question in self.questions{
             var answerString = ""
@@ -236,6 +237,8 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
             }
                 
         }
+        
+        submitSurvey(answer: answers)
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
@@ -271,8 +274,57 @@ class StudyDetailViewController: UIViewController,UITableViewDelegate,UITableVie
             }
         })
         
-        taskViewController.dismiss(animated: true, completion: nil)
+        
     }
+    
+    func submitSurvey(answer:[[String:Any]]){
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "e0d4fc15-4f41-3489-9173-e92a9963479e"
+        ]
+        let token = UserDefaults.standard.object(forKey: "authToken") as! String
+        let parameters = [
+            "token": token,
+            "answers": answer
+            ] as [String : Any]
+        
+        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://18.217.3.86:5000/sendanswerapi")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data!
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                do {
+                    let respo = try JSONDecoder().decode(SubmitSurveyResponse.self, from: data!)
+                    if respo.code == 200{
+                        let alert = UIAlertController(title: "Success", message: "Survey response submitted", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else{
+                        let alert = UIAlertController(title: "Failed", message: "Survey response could not be submitted", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
+    
     /*
     // MARK: - Navigation
 

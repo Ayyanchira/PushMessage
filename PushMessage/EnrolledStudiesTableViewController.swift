@@ -29,6 +29,10 @@ class EnrolledStudiesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        fetchStudies()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchStudies()
     }
     
